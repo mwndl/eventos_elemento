@@ -90,7 +90,18 @@ const FormularioEvento = () => {
       if (evento.location.address) elemento.Event.Location.Address = evento.location.address;
     }
   
-    if (evento.description) elemento.Event.Description = evento.description;
+    // Função para verificar se o conteúdo é apenas uma tag vazia
+    const isEmptyDescription = (description) => {
+      const div = document.createElement("div");
+      div.innerHTML = description;
+      const textContent = div.textContent || div.innerText || "";
+      return !textContent.trim(); // Retorna true se não houver texto significativo
+    };
+  
+    // Verificar se a descrição não está vazia ou apenas com tags vazias
+    if (evento.description && !isEmptyDescription(evento.description)) {
+      elemento.Event.Description = evento.description;
+    }
   
     if (Object.keys(elemento.Event).length === 0) {
       alert("Nenhum dado informado!");
@@ -110,6 +121,7 @@ const FormularioEvento = () => {
     setJsonElement(jsonString); // Passa o JSON formatado para o popup
     setShowPopup(true);
   };
+  
   
 
   const handleCopyToClipboard = () => {
