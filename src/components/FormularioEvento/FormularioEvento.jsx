@@ -80,7 +80,8 @@ const FormularioEvento = () => {
     const elemento = {
       Event: {}
     };
-
+  
+    if (evento.title) elemento.Event.Title = evento.title;
   
     if (evento.location.title || evento.location.address) {
       elemento.Event.Location = {};
@@ -88,15 +89,12 @@ const FormularioEvento = () => {
       if (evento.location.address) elemento.Event.Location.Address = evento.location.address;
     }
   
-    // Função para verificar se o conteúdo é apenas uma tag vazia
     const isEmptyDescription = (description) => {
       const div = document.createElement("div");
       div.innerHTML = description;
-      const textContent = div.textContent || div.innerText || "";
-      return !textContent.trim(); // Retorna true se não houver texto significativo
+      return !div.textContent.trim();
     };
   
-    // Verificar se a descrição não está vazia ou apenas com tags vazias
     if (evento.description && !isEmptyDescription(evento.description)) {
       elemento.Event.Description = evento.description;
     }
@@ -106,19 +104,12 @@ const FormularioEvento = () => {
       return;
     }
   
-    // JSON puro para cópia
     const jsonPuro = JSON.stringify(elemento, null, 2);
-    setRawJsonElement(jsonPuro); // Armazena o JSON puro
-  
-    // JSON formatado com estilos
-    let jsonString = jsonPuro
-      .replace(/"(\w+)"(?=\s*:)/g, '<span style="color: #42a5f5;">"$1"</span>') // Chaves em azul
-      .replace(/: "(.*?)"/g, ': <span style="color: #f38b40;">"$1"</span>') // Valores string em laranja
-      .replace(/: (\d+)/g, ': <span style="color: #8bc34a;">$1</span>'); // Números em verde
-  
-    setJsonElement(jsonString); // Passa o JSON formatado para o popup
+    setRawJsonElement(jsonPuro); // Guarda o JSON puro
     setShowPopup(true);
   };
+  
+  
   
   
 
@@ -208,11 +199,11 @@ const FormularioEvento = () => {
 
       {/* Exibir o PopupPreview */}
       {showPopup && (
-        <PopupPreview
-          jsonElement={jsonElement}
-          onClose={() => setShowPopup(false)}
-          onCopy={handleCopyToClipboard}
-          copied={copied} // Passando o estado para o componente
+        <PopupPreview 
+          rawJson={rawJsonElement} 
+          onClose={() => setShowPopup(false)} 
+          onCopy={handleCopyToClipboard} 
+          copied={copied} 
         />
 
       )}
