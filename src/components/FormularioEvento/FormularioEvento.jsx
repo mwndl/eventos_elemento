@@ -17,6 +17,7 @@ const FormularioEvento = () => {
   const [customLocation, setCustomLocation] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
   const [jsonElement, setJsonElement] = useState('');
+  const [rawJsonElement, setRawJsonElement] = useState(''); // JSON puro para cópia
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -95,23 +96,24 @@ const FormularioEvento = () => {
       return;
     }
   
-    // Convertendo JSON para string formatada
-    let jsonString = JSON.stringify(elemento, null, 2);
+    // JSON puro para cópia
+    const jsonPuro = JSON.stringify(elemento, null, 2);
+    setRawJsonElement(jsonPuro); // Armazena o JSON puro
   
-    // Aplicando cor às chaves e valores sem modificar a estrutura do JSON
-    jsonString = jsonString
+    // JSON formatado com estilos
+    let jsonString = jsonPuro
       .replace(/"(\w+)"(?=\s*:)/g, '<span style="color: #42a5f5;">"$1"</span>') // Chaves em azul
       .replace(/: "(.*?)"/g, ': <span style="color: #f38b40;">"$1"</span>') // Valores string em laranja
-      .replace(/: (\d+)/g, ': <span style="color: #8bc34a;">$1</span>'); // Valores numéricos em verde
+      .replace(/: (\d+)/g, ': <span style="color: #8bc34a;">$1</span>'); // Números em verde
   
-    setJsonElement(jsonString);  // Passando o JSON estilizado
-    setShowPopup(true);  // Exibe o popup
+    setJsonElement(jsonString); // Passa o JSON formatado para o popup
+    setShowPopup(true);
   };
   
   
 
   const handleCopyToClipboard = () => {
-    navigator.clipboard.writeText(jsonElement)
+    navigator.clipboard.writeText(rawJsonElement) // Copia apenas o JSON puro
       .then(() => alert("Elemento copiado para a área de transferência!"))
       .catch(err => console.error("Erro ao copiar: ", err));
   };
