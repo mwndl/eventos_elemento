@@ -1,0 +1,127 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Corpo */
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+  
+  /* Container principal */
+  .formulario {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+  }
+  
+  /* Títulos dos campos */
+  .formulario label {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 8px;
+    display: block;
+    color: #333;
+  }
+  
+  /* Inputs e Textarea */
+  .formulario input, .formulario .quillEditor {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+  
+  .formulario {
+    min-height: 150px;
+  }
+
+
+  .ql-container {
+    height: 300px !important;
+  }
+
+  .ql-editor {
+    height: 300px !important;
+  }
+
+  .locationContainer {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 16px;
+    
+  }
+  
+  .locationButton {
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #ffffff;
+    color: #010101;
+    transition: background-color 0.3s;
+    box-shadow: 0 0px 8px rgba(0, 0, 0, 0.181);
+  }
+  
+  
+  .selected {
+    background-color: #007BFF;
+    color: white;
+  }
+
+  .locationButton:hover {
+    background-color: #e0e0e0;
+  }
+
+  .selected:hover {
+    background-color: #0056b3;
+  }
+  
+  
+  
+  /* Botões */
+  .formulario button {
+    padding: 12px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+  }
+  
+  .formulario button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Responsividade */
+  @media (max-width: 600px) {
+    .formulario {
+      padding: 15px;
+    }
+  
+    .formulario label {
+      font-size: 12px;
+    }
+  
+    .formulario button {
+      font-size: 14px;
+    }
+  }
+  
+  

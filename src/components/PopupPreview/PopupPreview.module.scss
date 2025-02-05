@@ -1,0 +1,97 @@
+.popupOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+  }
+  
+  .popupContent {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 90%;
+    max-width: 600px; /* Limite para telas grandes */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 0.3s ease-in-out;
+  }
+  
+  .codeBlock {
+    background: #282c34;
+    color: white;
+    padding: 15px;
+    border-radius: 5px;
+    text-align: left;
+    white-space: pre-wrap;
+    overflow-x: auto;
+    font-family: monospace;
+    max-height: 300px; /* Evita que o bloco de código fique muito alto */
+    overflow-y: auto;
+  }
+  
+  /* Botões responsivos */
+  .popupButtons {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  
+  /* Botões substituídos por divs */
+  .locationButton {
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #ffffff;
+    color: #010101;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 0px 8px rgba(0, 0, 0, 0.181);
+    text-align: center;
+    min-width: 100px;
+  }
+  
+  .locationButton:hover {
+    background-color: #e0e0e0;
+    transform: scale(1.05);
+  }
+  
+  .selected {
+    background-color: #007BFF;
+    color: white;
+  }
+  
+  .selected:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Responsividade para telas menores */
+  @media (max-width: 480px) {
+    .popupContent {
+      width: 100%;
+      padding: 15px;
+    }
+  
+    .popupButtons {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .locationButton {
+      width: 100%;
+      max-width: 200px;
+    }
+  }
+  
+  /* Animação de fade-in */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
