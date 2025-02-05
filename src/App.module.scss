@@ -11,20 +11,22 @@
   max-width: 600px;
 }
 
+h1, h2 {
+  margin-bottom: 20px;
+  text-align: center;
+  user-select: none;
+}
+
 h1 {
   font-size: 1.7rem;
   font-weight: bold;
   color: #333;
-  margin-bottom: 20px;
-  text-align: center;
 }
 
 h2 {
   font-size: 1rem;
   font-weight: lighter;
   color: #7b7b7b;
-  margin-bottom: 20px;
-  text-align: center;
 }
 
   /* Responsividade */
