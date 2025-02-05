@@ -17,7 +17,7 @@
     border-radius: 10px;
     text-align: center;
     width: 90%;
-    max-width: 600px; /* Limite para telas grandes */
+    max-width: 600px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     animation: fadeIn 0.3s ease-in-out;
   }
@@ -31,11 +31,11 @@
     white-space: pre-wrap;
     overflow-x: auto;
     font-family: monospace;
-    max-height: 300px; /* Evita que o bloco de código fique muito alto */
+    max-height: 300px;
     overflow-y: auto;
   }
   
-  /* Botões responsivos */
+  /* Botões */
   .popupButtons {
     margin-top: 15px;
     display: flex;
@@ -44,34 +44,41 @@
     flex-wrap: wrap;
   }
   
-  /* Botões substituídos por divs */
-  .locationButton {
+  .optionButton {
     padding: 10px 15px;
     border-radius: 5px;
     cursor: pointer;
-    background-color: #ffffff;
-    color: #010101;
-    transition: background-color 0.3s, transform 0.2s;
+    background-color: white;
+    color: black;
+    transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
     box-shadow: 0 0px 8px rgba(0, 0, 0, 0.181);
     text-align: center;
     min-width: 100px;
+    display: flex;
+    justify-content: center; /* Alinha conteúdo centralizado */
+    align-items: center; /* Garante que o conteúdo fique no centro do botão */
+    height: 40px; /* Definindo uma altura fixa para o botão */
   }
   
-  .locationButton:hover {
+  .optionButton:hover {
     background-color: #e0e0e0;
     transform: scale(1.05);
   }
   
-  .selected {
-    background-color: #007BFF;
-    color: white;
+  
+  /* Animação do botão quando copiado */
+  .copied {
+    background-color: #4caf50 !important; /* Verde quando copiado */
+    color: white !important;
+    transform: scale(1.1);
+    transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
   }
   
-  .selected:hover {
-    background-color: #0056b3;
+  .copied svg {
+    animation: fadeIn 0.3s ease-in-out;
   }
   
-  /* Responsividade para telas menores */
+  /* Responsividade */
   @media (max-width: 480px) {
     .popupContent {
       width: 100%;

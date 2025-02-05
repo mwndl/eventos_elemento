@@ -18,6 +18,7 @@ const FormularioEvento = () => {
   const [showPopup, setShowPopup] = useState(false);
   const [jsonElement, setJsonElement] = useState('');
   const [rawJsonElement, setRawJsonElement] = useState(''); // JSON puro para cópia
+  const [copied, setCopied] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -110,19 +111,22 @@ const FormularioEvento = () => {
     setShowPopup(true);
   };
   
-  
 
   const handleCopyToClipboard = () => {
-    navigator.clipboard.writeText(rawJsonElement) // Copia apenas o JSON puro
-      .then(() => alert("Elemento copiado para a área de transferência!"))
+    navigator.clipboard.writeText(rawJsonElement)
+      .then(() => {
+        setCopied(true);
+        setTimeout(() => setCopied(false), 2000); // Reseta após 2 segundos
+      })
       .catch(err => console.error("Erro ao copiar: ", err));
   };
+  
 
   return (
     <>
       <form className={styles.formulario}>
         <div>
-          <label>Title:</label>
+          <label>Título:</label>
           <input
             type="text"
             name="title"
@@ -150,7 +154,7 @@ const FormularioEvento = () => {
         {customLocation && (
           <>
             <div>
-              <label>Custom Location Title:</label>
+              <label>Local (Título):</label>
               <input
                 type="text"
                 name="title"
@@ -160,7 +164,7 @@ const FormularioEvento = () => {
               />
             </div>
             <div>
-              <label>Address:</label>
+              <label>Endereço:</label>
               <input
                 type="text"
                 name="address"
@@ -180,7 +184,7 @@ const FormularioEvento = () => {
         )}
 
         <div>
-          <label>Description:</label>
+          <label>Descrição:</label>
           <ReactQuill
             value={evento.description}
             onChange={handleDescriptionChange}
@@ -208,7 +212,9 @@ const FormularioEvento = () => {
           jsonElement={jsonElement}
           onClose={() => setShowPopup(false)}
           onCopy={handleCopyToClipboard}
+          copied={copied} // Passando o estado para o componente
         />
+
       )}
     </>
   );

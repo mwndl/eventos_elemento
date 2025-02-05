@@ -1,7 +1,8 @@
 import React from 'react';
 import styles from './PopupPreview.module.scss'; // Importação do SCSS
+import { Check } from 'lucide-react'; // Ícone de confirmação
 
-const PopupPreview = ({ jsonElement, onClose, onCopy }) => {
+const PopupPreview = ({ jsonElement, onClose, onCopy, copied }) => {
   // Fecha o popup se clicar fora do conteúdo
   const handleOverlayClick = (event) => {
     if (event.target === event.currentTarget) {
@@ -14,10 +15,15 @@ const PopupPreview = ({ jsonElement, onClose, onCopy }) => {
       <div className={styles.popupContent} onClick={(e) => e.stopPropagation()}>
         <h2>Elemento Gerado</h2>
         <pre className={styles.codeBlock} dangerouslySetInnerHTML={{ __html: jsonElement }} />
-
+        
         <div className={styles.popupButtons}>
-          <div className={styles.locationButton} onClick={onClose}>Editar</div>
-          <div className={styles.locationButton} onClick={onCopy}>Copiar</div>
+          <div className={styles.optionButton} onClick={onClose}>Editar</div>
+          <div 
+            className={`${styles.optionButton} ${copied ? styles.copied : ''}`} 
+            onClick={onCopy}
+          >
+            {copied ? <Check size={20} /> : "Copiar"} {/* Substituindo ícone */}
+          </div>
         </div>
       </div>
     </div>
