@@ -33,6 +33,7 @@
     margin-bottom: 8px;
     display: block;
     color: #333;
+    user-select: none;
   }
   
   /* Inputs e Textarea */
@@ -73,6 +74,7 @@
     color: #010101;
     transition: background-color 0.3s;
     box-shadow: 0 0px 8px rgba(0, 0, 0, 0.181);
+    user-select: none;
   }
   
   
@@ -103,6 +105,7 @@
     width: 100%;
     margin-top: 10px;
     transition: background-color 0.3s;
+    user-select: none;
   }
   
   .formulario button:hover {
@@ -132,6 +135,7 @@
 
     :global(.ql-editor) {
         font-size: 16px !important;
+        user-select: none;
       }
       
 
