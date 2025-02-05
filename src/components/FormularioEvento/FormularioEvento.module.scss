@@ -122,6 +122,19 @@
     .formulario button {
       font-size: 14px;
     }
+
+    /* evitar zoom do modile */
+    .formulario input, 
+    .formulario textarea, 
+    .formulario .quillEditor {
+        font-size: 16px;
+    }
+
+    :global(.ql-editor) {
+        font-size: 16px !important;
+      }
+      
+
   }
   
   
