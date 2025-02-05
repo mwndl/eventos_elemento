@@ -24,15 +24,14 @@
   
   .codeBlock {
     background: #282c34;
-    color: white;
     padding: 15px;
     border-radius: 5px;
     text-align: left;
     white-space: pre-wrap;
-    overflow-x: auto;
-    font-family: monospace;
-    max-height: 300px;
+    word-wrap: break-word;
     overflow-y: auto;
+    max-height: 300px;
+    font-family: monospace;
   }
   
   /* Botões */

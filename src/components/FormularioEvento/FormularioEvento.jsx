@@ -104,7 +104,8 @@ const FormularioEvento = () => {
       return;
     }
   
-    const jsonPuro = JSON.stringify(elemento, null, 2);
+    const jsonPuro = JSON.stringify(elemento, null, 2)
+    .replace(/<\/?([a-z][a-z0-9]*)\b[^>]*>/gi, match => match.replace(/"/g, '\\"')); 
     setRawJsonElement(jsonPuro); // Guarda o JSON puro
     setShowPopup(true);
   };
