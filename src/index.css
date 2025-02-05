@@ -11,3 +11,30 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.hljs {
+  background: #282c34; 
+  color: #f8f8f2; 
+}
+
+.hljs-punctuation {
+  color: #ffffff !important;; 
+}
+
+.hljs-attr {
+  color: #df3079 !important;;
+  font-weight: bold !important;;
+}
+
+.hljs-string {
+  color: #00a67d !important;;
+}
+
+.hljs-number {
+  color: #bd93f9 !important;;
+}
+
+.hljs-literal {
+  color: #ff5555 !important;;
+}
+
