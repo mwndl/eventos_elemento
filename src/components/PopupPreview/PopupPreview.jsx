@@ -13,7 +13,6 @@ const PopupPreview = ({ jsonElement, onClose, onCopy, copied }) => {
   return (
     <div className={styles.popupOverlay} onClick={handleOverlayClick}>
       <div className={styles.popupContent} onClick={(e) => e.stopPropagation()}>
-        <h2>Elemento Gerado</h2>
         <pre className={styles.codeBlock} dangerouslySetInnerHTML={{ __html: jsonElement }} />
         
         <div className={styles.popupButtons}>
