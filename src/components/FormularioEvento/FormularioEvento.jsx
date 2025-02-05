@@ -6,7 +6,6 @@ import PopupPreview from '../PopupPreview/PopupPreview'; // Importando o compone
 
 const FormularioEvento = () => {
   const [evento, setEvento] = useState({
-    title: '',
     location: {
       title: '',
       address: ''
@@ -81,8 +80,7 @@ const FormularioEvento = () => {
     const elemento = {
       Event: {}
     };
-  
-    if (evento.title) elemento.Event.Title = evento.title;
+
   
     if (evento.location.title || evento.location.address) {
       elemento.Event.Location = {};
@@ -137,19 +135,9 @@ const FormularioEvento = () => {
   return (
     <>
       <form className={styles.formulario}>
-        <div>
-          <label>Título:</label>
-          <input
-            type="text"
-            name="title"
-            value={evento.title}
-            onChange={handleChange}
-            placeholder="Digite o título do evento"
-          />
-        </div>
 
         <div>
-          <label>Localização:</label>
+          <label>Local:</label>
           <div className={styles.locationContainer}>
             {["Templo Sede", "Templo Novo", "Outro"].map((option) => (
               <div
@@ -166,7 +154,7 @@ const FormularioEvento = () => {
         {customLocation && (
           <>
             <div>
-              <label>Local (Título):</label>
+              <label>Local nome:</label>
               <input
                 type="text"
                 name="title"
@@ -176,7 +164,7 @@ const FormularioEvento = () => {
               />
             </div>
             <div>
-              <label>Endereço:</label>
+              <label>Local endereço:</label>
               <input
                 type="text"
                 name="address"
