@@ -5,8 +5,9 @@ import styles from './App.module.scss';
 
 function App() {
   return (
-    <div className="App">
-      <h1>Formulário de Evento</h1>
+    <div className={styles.App}>
+      <h1>Criar Elemento</h1>
+      <h2>Utilize a ferramenta abaixo para criar dados internos de eventos. O código gerado deve ser colado no campo "detalhes" do Google Agenda.</h2>
       <FormularioEvento />
     </div>
   );
