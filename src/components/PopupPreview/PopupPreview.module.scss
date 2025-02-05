@@ -58,6 +58,7 @@
     justify-content: center; /* Alinha conteúdo centralizado */
     align-items: center; /* Garante que o conteúdo fique no centro do botão */
     height: 40px; /* Definindo uma altura fixa para o botão */
+    user-select: none;
   }
   
   .optionButton:hover {
@@ -90,9 +91,12 @@
       align-items: center;
     }
   
-    .locationButton {
+    .optionButton {
       width: 100%;
-      max-width: 200px;
+    }
+
+    .optionButton:hover, .copied {
+        transform: scale(1);
     }
   }
   
