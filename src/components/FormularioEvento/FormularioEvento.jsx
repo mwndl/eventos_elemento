@@ -104,14 +104,16 @@ const FormularioEvento = () => {
       return;
     }
   
-    const jsonPuro = JSON.stringify(elemento)
+    const jsonPuro = JSON.stringify(elemento, null, 2)
     .replace(/<\/?([a-z][a-z0-9]*)\b[^>]*>/gi, match => match.replace(/"/g, '\\"')); 
     setRawJsonElement(jsonPuro); // Guarda o JSON puro
     setShowPopup(true);
   };
   
   const handleCopyToClipboard = () => {
-    navigator.clipboard.writeText(rawJsonElement)
+    const jsonMinificado = JSON.stringify(JSON.parse(rawJsonElement)); 
+  
+    navigator.clipboard.writeText(jsonMinificado)
       .then(() => {
         setCopied(true);
         setTimeout(() => setCopied(false), 2000); // Reseta após 2 segundos
